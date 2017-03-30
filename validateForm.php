@@ -1,4 +1,4 @@
 <?php
-	echo ("Using PHP is not hard");
+	echo ("Using PHP is not hard!");
 	
 ?>
