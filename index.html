@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hypothetical Software</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="checkForm.js" type="text/javascript"></script>
+    </head>
+    <body onload="setUpPage()">
+        <h1>Chris's Hypothetical Software</h1>
+        <h3>That he sells, on this website. Fill out the form below to order.</h3>
+        <form id="input_form" onsubmit="return validateForm()" action="validateForm.php" method="post">
+            <h3>Tell us about you (required):</h3>
+            <input id="fname" type="text" name="first_name" placeholder="First Name (required)" onblur="fnameFix()">
+            <br/>
+            <label for="fname">No numbers or special characters</label>
+            <br/><br/>
+			
+            <input id="lname" type="text" name="last_name" placeholder="Last Name (required)" onblur="lnameFix()">
+            <br/>
+            <label for="lname">No numbers or special characters</label>
+            <br/><br/>
+			
+            <input id="pnumber" type="text" name="phone_number" placeholder="Phone Number (required)" onblur="pnumberFix()">
+            <br/>
+            <label for="pnumber">Only numbers, no spaces</label>
+            <br/><br/>
+			
+            <input id="email" type="text" name="email" placeholder="Email Address (required)" onblur="emailFix()">
+            <br/>
+            <label for="email">Only full-form, valid emails (eg. john_123@example.com)</label>
+            <br/><br/>
+			
+			
+			<div id="field_container">
+				<div id="left_field">
+					<input id="stnumber" type="text" name="street_number" placeholder="Street Number (required)" onblur="pcodeFix()">
+					<br/>
+					<label for="stnumber">Include unit number</label>
+				</div>
+				<div id="right_field">
+					<input id="address" type="text" name="address" placeholder="Address (required)" onblur="pcodeFix()">
+					<br/>
+					<label for="address">Full Address</label>
+				</div>
+			</div>
+			
+            <br/>
+			
+			<div id="field_container">
+				<div id="left_field">
+					<input id="city" type="text" name="city" placeholder="City (required)" onblur="pcodeFix()">
+					<br/>
+					<label for="city">Choose your city</label>
+				</div>
+				<div id="right_field">
+					<input id="province" type="text" name="province" placeholder="Province (required)" onblur="pcodeFix()">
+					<br/>
+					<label for="province">Choose your province</label>
+				</div>
+			</div>
+			
+            <br/>
+			
+            <input id="pcode" type="text" name="postal_code" placeholder="Postal Code (required)" onblur="pcodeFix()">
+            <br/>
+            <label for="pcode">Only Canadian potal codes (A#A #A#)</label>
+            <br/>
+			
+            <h3>How did you hear about us?</h3>
+            <select id="hear">
+                <option value="word">Word of mouth</option>
+                <option value="google">Google search</option>
+                <option value="ad">Promotion or advertisement</option>
+                <option value="forum">On a forum</option>
+            </select>
+            <br/><br/>
+			<div id="orderdiv">
+	            <br/><br/>
+	            <b class="price">@ $9.95 each </b><img src="standardwidget.png">&nbsp;Number of Standard Widgets:
+	            <input id="standorder" type="number" name="standard" placeholder="0" onblur="standorderFix()">
+	            <br/><br/>
+	            <b clas="price">@ $29.95 each </b><img src="platinumwidget.png">&nbsp;&nbsp;Number of Platinum Deluxe Widgets:
+	            <input id="platorder" type="number" name="platinum" placeholder="0" onblur="platorderFix()">
+	            <br/><br/>
+	            Please note that Sales Tax and Shipping/Handling charges will be added to all orders.
+	            <br/><br/>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+        <span id="dialogue"></span>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+html {
+    background-color: lightgrey;
+}
+body {
+    font-family: monospace;
+    text-align: center;
+    background-color: white;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+#input_form {
+    text-align: center;
+    align-content: center;
+    margin: auto;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border: 2px solid grey;
+}
+input {
+    text-align: center;
+}
+#left_box {
+    width: 50%;
+    text-align: left;
+    margin: auto;
+    padding: 1em;
+    border: 2px solid lightgrey;    
+}
+#field_container {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+	-moz-column-width: 5em;
+	-webkit-column-width: 5em;
+	column-width: 5em;
+	width: 60%;
+	margin: auto;
+	overflow: auto;
+}
+#left_field {
+}
+#right_field {
+}
+#dialogue {
+    color: red;
+}
+label {
+    font-size: .75em;
+}
