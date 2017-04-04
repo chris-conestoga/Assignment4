@@ -23,20 +23,19 @@
         <form id="input_form" onsubmit="return validateForm()" action="validateForm.php" method="post">
 			<div id="accordion">
 				<h3>Place your order</h3>
-				<div>
-					<div id="orderdiv">
-						<br/><br/>
-						<b class="price">@ $9.95 each </b><img src="standardwidget.png">&nbsp;Number of Standard Widgets:
-						<input id="standorder" type="number" name="standard" placeholder="0" onblur="standorderFix()">
-						<br/><br/>
-						<b clas="price">@ $29.95 each </b><img src="platinumwidget.png">&nbsp;&nbsp;Number of Platinum Deluxe Widgets:
-						<input id="platorder" type="number" name="platinum" placeholder="0" onblur="platorderFix()">
-						<br/><br/>
-						Please note that Sales Tax and Shipping/Handling charges will be added to all orders.
-					</div>
+				<div id="order_section">
+					<b class="price">@ $9.95 each </b><img src="standardwidget.png">&nbsp;Number of Standard Widgets:
+					<input id="standorder" type="number" name="standard" placeholder="0" onblur="standorderFix()">
+					<br/><br/>
+					<b clas="price">@ $29.95 each </b><img src="platinumwidget.png">&nbsp;&nbsp;Number of Platinum Deluxe Widgets:
+					<input id="platorder" type="number" name="platinum" placeholder="0" onblur="platorderFix()">
+					<br/><br/>
+					Please note that Sales Tax and Shipping/Handling charges will be added to all orders.
 				</div>
-				<h3>Tell us about you (required):</h3>
-				<div>
+				
+				
+				<h3>Tell us about you</h3>
+				<div id="info_section">
 					<input id="fname" type="text" name="first_name" placeholder="First Name (required)" onblur="fnameFix()">
 					<br/>
 					<label for="fname">No numbers or special characters</label>
@@ -58,13 +57,13 @@
 					<br/><br/>
 
 
-					<div id="field_container">
-						<div id="left_field">
+					<div class="field_container">
+						<div class="dual_field">
 							<input id="stnumber" type="text" name="street_number" placeholder="Street Number (required)" onblur="pcodeFix()">
 							<br/>
 							<label for="stnumber">Include unit number</label>
 						</div>
-						<div id="right_field">
+						<div class="dual_field">
 							<input id="address" type="text" name="address" placeholder="Address (required)" onblur="pcodeFix()">
 							<br/>
 							<label for="address">Full Address</label>
@@ -73,13 +72,13 @@
 
 					<br/>
 
-					<div id="field_container">
-						<div id="left_field">
+					<div class="field_container">
+						<div class="dual_field">
 							<input id="city" type="text" name="city" placeholder="City (required)" onblur="pcodeFix()">
 							<br/>
 							<label for="city">Choose your city</label>
 						</div>
-						<div id="right_field">
+						<div class="dual_field">
 							<input id="province" type="text" name="province" placeholder="Province (required)" onblur="pcodeFix()">
 							<br/>
 							<label for="province">Choose your province</label>
@@ -92,17 +91,22 @@
 					<br/>
 					<label for="pcode">Only Canadian potal codes (A#A #A#)</label>
 					<br/>
-
-					<h3>How did you hear about us?</h3>
-					<select id="hear">
+				</div>
+				<h3>Checkout</h3>
+				<div id="checkout_section">
+					<select id="hear" name="hear">
 						<option value="word">Word of mouth</option>
 						<option value="google">Google search</option>
 						<option value="ad">Promotion or advertisement</option>
 						<option value="forum">On a forum</option>
 					</select>
+					<br/>
+					<label for="hear">How did you hear about us?</label>
+					<br/><br/>
+					<input type="submit" value="Checkout">
 				</div>
 			</div>
-            <input type="submit" value="Submit">
+			
         </form>
         <span id="dialogue"></span>
     </body>
