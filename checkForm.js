@@ -6,6 +6,7 @@ function validateForm()
 	var emailRegEx= new RegExp("^[a-zA-Z0-9!#$%&'*+\\-/=?^_`{|}~]+@[a-z0-9._-]+\.[a-z]+$");
 	var phoneRegEx= new RegExp("^[0-9]{4,16}");
 	var postalRegEx= /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+	var check="";
 	fnameFix();
 	lnameFix();
 	pcodeFix();
@@ -27,7 +28,7 @@ function validateForm()
 			document.getElementById('lname').focus();
 			hasFocused=true;
 		}
-		errorMessage=errorMessage.concat("Invalid Last Name: Must consist of only letters<br/><br/>")
+		errorMessage=errorMessage.concat("Invalid Last Name: Must consist of only letters<br/><br/>");
 	}
 	if (!phoneRegEx.test(document.getElementById("pnumber").value))
 	{
@@ -35,7 +36,7 @@ function validateForm()
 			document.getElementById('pnumber').focus();
 			hasFocused=true;
 		}
-		errorMessage=errorMessage.concat("Invalid Phone Number: Must consist of only numbers, and no special characters or spaces. Must be between 4 and 16 digits.<br/><br/>")
+		errorMessage=errorMessage.concat("Invalid Phone Number: Must consist of only numbers, and no special characters or spaces. Must be between 4 and 16 digits.<br/><br/>");
 	}
 	if (!emailRegEx.test(document.getElementById("email").value))
 	{
@@ -43,7 +44,7 @@ function validateForm()
 			document.getElementById('email').focus();
 			hasFocused=true;
 		}
-		errorMessage=errorMessage.concat("Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>")
+		errorMessage=errorMessage.concat("Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>");
 	}
 	if (!postalRegEx.test(document.getElementById("pcode").value))
 	{
@@ -52,16 +53,53 @@ function validateForm()
 			document.getElementById('pcode').focus();
 			hasFocused=true;
 		}
-		errorMessage=errorMessage.concat("Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>")
+		errorMessage=errorMessage.concat("Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>");
 	}
+	if (document.getElementById("stnumber").value=="")
+	{
+		if (!hasFocused)
+		{
+			document.getElementById('stnumber').focus();
+			hasFocused=true;
+		}
+		errorMessage=errorMessage.concat("You must enter a Street Number / Apartment Number<br/><br/>");
+	}
+	check = document.getElementById("address").value;
+	if (check=="" || check < 5)
+	{
+		if (!hasFocused)
+		{
+			document.getElementById('address').focus();
+			hasFocused=true;	
+		}
+		errorMessage=errorMessage.concat("You must enter sufficient address information (at least 5 characters in length)<br/><br/>");
+	}
+	check = document.getElementById("city").value;
+	if (check=="" || check < 3)
+	{
+		if (!hasFocused)
+		{
+			document.getElementById('city').focus();
+			hasFocused=true;	
+		}
+		errorMessage=errorMessage.concat("You must enter a city (at least 3 characters in length)<br/><br/>");
+	}
+	check = document.getElementById("province").value;
+	if (check=="" || check < 2)
+	{
+		if (!hasFocused)
+		{
+			document.getElementById('province').focus();
+			hasFocused=true;	
+		}
+		errorMessage=errorMessage.concat("You must enter a province (at least 2 characters in length)<br/><br/>");
+	}
+
 	document.getElementById("dialogue").innerHTML="<h2>ERROR:</h2>"+errorMessage;
 	if (errorMessage!=""){
 		return false;
 	}
 }
-
-
-
 
 function setUpPage()
 {
