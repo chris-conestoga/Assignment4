@@ -14,6 +14,18 @@ function validateForm()
 	genericFix("address");
 	genericFix("city");
 	genericFix("province");
+
+	if (isNaN(document.getElementById("standorder").value)) document.getElementById("standorder").value = 0;
+	if (isNaN(document.getElementById("platorder").value)) document.getElementById("platorder").value = 0;
+
+	check = document.getElementById("standorder").value;
+	check += document.getElementById("platorder").value;
+
+	if (check <= 0)
+	{
+		errorMessage=errorMessage.concat("You must order at least one item.<br/><br/>");
+	}
+
 	if (!nameRegEx.test(document.getElementById("fname").value))
 	{
 		if (!hasFocused){
