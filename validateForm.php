@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="main.css">
     </head>
     <body>
-		<h1>Order recipt:</h1>
 		<?php
 			
 			$nameRegEx = "~^[a-zA-Z]+$~";
@@ -41,54 +40,51 @@
 				$check += $platinum;
 				if ($check <= 0)
 				{
-					$errorMessage=errorMessage.concat("You must order at least one item.<br/><br/>");
+					$errorMessage=$errorMessage."You must order at least one item.<br/><br/>";
 				}
+				print($first_name);
 				if (!preg_match($nameRegEx,$first_Name))
 				{
-					$errorMessage=errorMessage.concat("Invalid First Name: Must consist of only letters.<br/><br/>");
+					$errorMessage=$errorMessage."Invalid First Name: Must consist of only letters.<br/><br/>";
 				}
-				print($last_name);
 				if (!preg_match($nameRegEx,$last_name))
 				{
-					$errorMessage=errorMessage.concat("Invalid Last Name: Must consist of only letters<br/><br/>");
+					$errorMessage=$errorMessage."Invalid Last Name: Must consist of only letters<br/><br/>";
 				}
-				print($phone_number);
 				if (!preg_match($phoneRegEx,$phone_number))
 				{
-					$errorMessage=errorMessage.concat("Invalid Phone Number: Must consist of only numbers, and no special characters or spaces. Must be between 4 and 16 digits.<br/><br/>");
+					$errorMessage=$errorMessage."Invalid Phone Number: Must consist of only numbers, and no special characters or spaces. Must be between 4 and 16 digits.<br/><br/>";
 				}
-				print($email);
 				if (!preg_match($emailRegEx,$email))
 				{
-					$errorMessage=errorMessage.concat("Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>");
+					$errorMessage=$errorMessage."Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>";
 				}
-				print($street_number);
 				if ($street_number=="")
 				{
-					$errorMessage=errorMessage.concat("You must enter a Street Number / Apartment Number<br/><br/>");
+					$errorMessage=$errorMessage."You must enter a Street Number / Apartment Number<br/><br/>";
 				}
-				print($address);
 				if ($address==""||strlen($address)<5)
 				{
-					$errorMessage=errorMessage.concat("You must enter sufficient address information (at least 5 characters in length)<br/><br/>");
+					$errorMessage=$errorMessage."You must enter sufficient address information (at least 5 characters in length)<br/><br/>";
 				}
-				print($city);
 				if ($city==""||strlen($city)<3)
 				{
-					$errorMessage=errorMessage.concat("You must enter a city (at least 3 characters in length)<br/><br/>");
+					$errorMessage=$errorMessage."You must enter a city (at least 3 characters in length)<br/><br/>";
 				}
-				print($province);
-				if ($province==""||strlen($province)<3)
+				if ($province==""||strlen($province)<2)
 				{
-					$errorMessage=errorMessage.concat("You must enter a province (at least 2 characters in length)<br/><br/>");
+					$errorMessage=$errorMessage."You must enter a province (at least 2 characters in length)<br/><br/>";
 				}
-				print($postal_code);
 				if (!preg_match($postalRegEx,$postal_code))
 				{
-					$errorMessage=errorMessage.concat("Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>");
+					$errorMessage=$errorMessage."Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>";
 				}
 				if (errorMessage != ""){
-					print($errorMessage);
+					print('<span id="dialogue"><h1>ERROR:</h1><br/>'.$errorMessage.'</span>');
+				}
+				else
+				{
+					print('<h1>Order recipt:</h1>');
 				}
 			}
 			else
