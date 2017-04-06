@@ -45,11 +45,11 @@ function validateForm()
 		}
 		errorMessage=errorMessage.concat("Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>")
 	}
-	if (!postalRegEx.test(document.getElementById("postal_code").value))
+	if (!postalRegEx.test(document.getElementById("pcode").value))
 	{
 		if (!hasFocused)
 		{
-			document.getElementById('postal_code').focus();
+			document.getElementById('pcode').focus();
 			hasFocused=true;
 		}
 		errorMessage=errorMessage.concat("Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>")
@@ -59,6 +59,10 @@ function validateForm()
 		return false;
 	}
 }
+
+
+
+
 function setUpPage()
 {
 	document.getElementById('hear').selectedIndex=-1;
@@ -98,6 +102,13 @@ function lnameFix()
   if (document.getElementById("lname").value!=null&&document.getElementById("lname").value!="")
   {
 	  document.getElementById("lname").value=trimWhiteSpace(makeUpperCase(document.getElementById("lname").value));
+  }
+}
+function pcodeFix()
+{
+  if (document.getElementById("pcode").value!=null&&document.getElementById("pcode").value!="")
+  {
+	  document.getElementById("pcode").value=trimWhiteSpace(makeUpperCase(document.getElementById("pcode").value));
   }
 }
 function genericFix(id)
