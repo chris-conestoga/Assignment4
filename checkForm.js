@@ -7,6 +7,11 @@ function validateForm()
 	var phoneRegEx= new RegExp("^[0-9]{4,16}");
 	fnameFix();
 	lnameFix();
+	pcodeFix();
+	genericFix("stnumber");
+	genericFix("address");
+	genericFix("city");
+	genericFix("province");
 	if (!nameRegEx.test(document.getElementById("fname").value))
 	{
 		if (!hasFocused){
@@ -47,6 +52,7 @@ function validateForm()
 function setUpPage()
 {
 	document.getElementById('hear').selectedIndex=-1;
+	document.getElementById('province').selectedIndex=-1;
 	document.getElementById('fname').focus();
 }
 function fnameFix()
@@ -76,6 +82,20 @@ function emailFix()
   {
 	  document.getElementById("email").value=trimWhiteSpace(document.getElementById("email").value);
   }
+}
+function lnameFix()
+{
+  if (document.getElementById("lname").value!=null&&document.getElementById("lname").value!="")
+  {
+	  document.getElementById("lname").value=trimWhiteSpace(makeUpperCase(document.getElementById("lname").value));
+  }
+}
+function genericFix(id)
+{
+  	if (document.getElementById(id).value!=null&&document.getElementById(id).value!="")
+  	{
+		document.getElementById(id).value=trimWhiteSpace(document.getElementById(id).value);
+  	}
 }
 function makeUpperCase(input)
 {
