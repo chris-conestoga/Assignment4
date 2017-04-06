@@ -5,6 +5,7 @@ function validateForm()
 	var nameRegEx= new RegExp("^[a-zA-Z]+$");
 	var emailRegEx= new RegExp("^[a-zA-Z0-9!#$%&'*+\\-/=?^_`{|}~]+@[a-z0-9._-]+\.[a-z]+$");
 	var phoneRegEx= new RegExp("^[0-9]{4,16}");
+	var postalRegEx= new RegExp("^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$");
 	fnameFix();
 	lnameFix();
 	pcodeFix();
@@ -43,6 +44,15 @@ function validateForm()
 			hasFocused=true;
 		}
 		errorMessage=errorMessage.concat("Invalid Email Address: letters, numbers, and special characters such as !#$%&'*+-/=?^_`{|}~ are only allowed in the local part. The domain may only contain letters, numbers, or hyphens [-]. The email address must be formatted as such: ---@----.--- though length may vary.<br/><br/>")
+	}
+	if (!postalRegEx.test(document.getElementById("postal_code").value))
+	{
+		if (!hasFocused)
+		{
+			document.getElementById('postal_code').focus();
+			hasFocused=true;
+		}
+		errorMessage=errorMessage.concat("Invalid Postal Code: Must comply with standard Canadian format: e.g. A1A 1A1.<br/><br/>")
 	}
 	document.getElementById("dialogue").innerHTML="<h2>ERROR:</h2>"+errorMessage;
 	if (errorMessage!=""){
