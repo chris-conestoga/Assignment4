@@ -10,10 +10,11 @@
 		<h1>Order recipt:</h1>
 		<?php
 			
-			var nameRegEx= new RegExp("^[a-zA-Z]+$");
-			var emailRegEx= new RegExp("^[a-zA-Z0-9!#$%&'*+\\-/=?^_`{|}~]+@[a-z0-9._-]+\.[a-z]+$");
-			var phoneRegEx= new RegExp("^[0-9]{4,16}");
-			var postalRegEx= /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
+			$nameRegEx = "~^[a-zA-Z]+$~"
+			$emailRegEx = "~^[a-zA-Z0-9!#$%&'*+\\-/=?^_`{|}~]+@[a-z0-9._-]+\.[a-z]+$~"
+			$phoneRegEx = "~^[0-9]{4,16}~"
+			$postalRegEx = "~^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$~"
+							
 			if (isset($_POST))
 			{
 				$standard = $_POST['standard'];
@@ -27,7 +28,6 @@
 				$city = $_POST['city'];
 				$postal_code = $_POST['postal_code'];
 				$hear = $_POST['hear'];
-				
 			}
 			else
 			{
