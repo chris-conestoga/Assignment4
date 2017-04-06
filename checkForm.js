@@ -5,7 +5,7 @@ function validateForm()
 	var nameRegEx= new RegExp("^[a-zA-Z]+$");
 	var emailRegEx= new RegExp("^[a-zA-Z0-9!#$%&'*+\\-/=?^_`{|}~]+@[a-z0-9._-]+\.[a-z]+$");
 	var phoneRegEx= new RegExp("^[0-9]{4,16}");
-	var postalRegEx= new RegExp("^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$");
+	var postalRegEx= /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
 	fnameFix();
 	lnameFix();
 	pcodeFix();
