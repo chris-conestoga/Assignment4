@@ -28,26 +28,20 @@ input {
     padding: 1em;
     border: 2px solid lightgrey;    
 }
-.field_container {
-	-webkit-column-count: 2 45%;
-    -moz-column-count: 2 45%;
-    column-count: 2 45%;
-
-    -webkit-column-gap: 5%;
-    -moz-column-gap: 5%;
-    column-gap: 5%;
-	
-	width: 80%;
+#field_container {
+	-moz-column-count: 2;
+	-webkit-column-count: 2;
+	column-count: 2;
+	-moz-column-width: 5em;
+	-webkit-column-width: 5em;
+	column-width: 5em;
+	width: 60%;
 	margin: auto;
 	overflow: auto;
-	align-items: center;
-	align-content: center;
 }
-.dual_field {
-	align-self: center;
-	position: relative;
-	margin: 1em;
-	float: left;
+#left_field {
+}
+#right_field {
 }
 #dialogue {
     color: red;
