@@ -85,7 +85,107 @@
 				else
 				{
 					print('<h1>Order recipt:</h1>');
-				}
+					print("<br/>Shipping to:");
+			print("<br/>$last_name , $first_name");
+			print("<br/>$street_number $address");
+			print("<br/>$city , $province");
+			print("<br/><br/>Order Information:");
+			$exstand = $standard * 9.95;
+			$explat = $platinum * 29.95;
+			$base_total = $exstand + $explat;
+			if ($base_total > 0 && base_total <= 25)
+			{
+				$delivery_time = 1;
+				$delivery_charge = 3.00;				
+			}
+			elseif ($base_total > 25 && $base_total <= 50)
+			{
+				$delivery_time = 1;
+				$delivery_charge = 4.00;
+			}
+			elseif ($base_total >50 && $base_total <=75)
+			{
+				$delivery_time = 3;
+				$delivery_charge = 5.00;
+			}
+			else
+			{
+				$delivery_time = 4;
+				$delivery_charge = 6.00;
+			}
+
+			if ($standard > 0)
+			{
+				print("<br/>$standard standard Widgets @ /$9.95 each, extended cost /$$exstand");
+			}
+			if ($platinum > 0)
+			{
+				print("<br/>$platinum platinum Widgets @ /$29.95 each, extended cost /$$explat");
+			}
+			print("<br/>Your base cost is /$$base_total");
+			print("<br/>Your total delivery charge is /$$delivery_charge");
+
+			if ($province == "AB")
+			{
+				$prov_tax = $base_total * 0.05;
+			}
+			elseif ($province == "BC")
+			{
+				$prov_tax = $base_total * 0.12;
+			}
+			elseif ($province == "MB")
+			{
+				$prov_tax = $base_total * 0.13;
+			}
+			elseif ($province == "NB")
+			{
+				$prov_tax = $base_total * 0.15;
+			}
+			elseif ($province == "NL")
+			{
+				$prov_tax = $base_total * 0.15;
+			}
+			elseif ($province == "NS")
+			{
+				$prov_tax = $base_total * 0.15;
+			}
+			elseif ($province == "NT")
+			{
+				$prov_tax = $base_total * 0.05;
+			}
+			elseif ($province == "NU")
+			{
+				$prov_tax = $base_total * 0.05;
+			}
+			elseif ($province == "ON")
+			{
+				$prov_tax = $base_total * 0.13;
+			}
+			elseif ($province == "PE")
+			{
+				$prov_tax = $base_total * 0.15;
+			}
+			elseif ($province == "QC")
+			{
+				$prov_tax = $base_total * 0.14975;
+			}
+			elseif ($province == "SK")
+			{
+				$prov_tax = $base_total * 0.11;
+			}
+			elseif ($province == "YT")
+			{
+				$prov_tax = $base_total * 0.05;
+			}
+			else
+			{
+				$prov_tax = $base_total * 1;
+			}
+
+			$total_cost = $base_total + $prov_tax + $delivery_charge;
+			$total_cost = round($total_cost, 2);
+			print("<br/><br/>The total dcost for your order is /$$total_cost");
+			}
 			}
 			else
 			{
