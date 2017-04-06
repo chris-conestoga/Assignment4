@@ -30,7 +30,7 @@ table, th, td {
 }
 table {
 	border-collapse: collapse;
-	margin: 2em;
+	margin: auto;
 }
 #input_form {
     text-align: center;
@@ -42,6 +42,11 @@ table {
 }
 input {
     text-align: center;
+}
+#order_section {
+	padding: 1em;
+	align-content: center;
+	align-items: center;
 }
 #left_box {
     width: 50%;
