@@ -13,21 +13,37 @@
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script>
 			$( function() {
-				$( "#accordion" ).accordion({collapsible:false});
+				$( "#accordion" ).accordion({
+					collapsible:false
+				});
 			});
 		</script>
     </head>
     <body onload="setUpPage()">
-        <h1>Chris's Hypothetical Software</h1>
-        <h3>That he sells, on this website. Fill out the form below to order.</h3>
+        <h1>Chris and Jeff's Hypothetical Software</h1>
+        <h3>That they sells, on this website. Fill out the form below to order.</h3>
         <form id="input_form" onsubmit="return validateForm()" action="validateForm.php" method="post">
 			<div id="accordion">
 				<h3>Place your order</h3>
-				<div id="order_section">
+				<div id="order_section" class="menu_section">
+					<table>
+					  <tr>
+						<th>Icon</th>
+						<th>Description</th>
+						<th>Quantity</th>
+						<th>Price</th>
+					  </tr>
+					  <tr>
+						<td>January</td>
+						<td>$100</td>
+						<td><input id="standorder" type="number" name="standard" placeholder="0" onblur="standorderFix()"></td>
+						<td>$100</td>
+					  </tr>
+					</table>
 					<b class="price">@ $9.95 each </b><img src="standardwidget.png">&nbsp;Number of Standard Widgets:
-					<input id="standorder" type="number" name="standard" placeholder="0" onblur="standorderFix()">
+					
 					<br/><br/>
-					<b clas="price">@ $29.95 each </b><img src="platinumwidget.png">&nbsp;&nbsp;Number of Platinum Deluxe Widgets:
+					<b class="price">@ $29.95 each </b><img src="platinumwidget.png">&nbsp;&nbsp;Number of Platinum Deluxe Widgets:
 					<input id="platorder" type="number" name="platinum" placeholder="0" onblur="platorderFix()">
 					<br/><br/>
 					Please note that Sales Tax and Shipping/Handling charges will be added to all orders.
@@ -35,16 +51,20 @@
 				
 				
 				<h3>Tell us about you</h3>
-				<div id="info_section">
-					<input id="fname" type="text" name="first_name" placeholder="First Name (required)" onblur="fnameFix()">
+				<div id="info_section" class="menu_section">
+					<div class="field_container">
+						<div class="dual_field">
+							<input id="fname" type="text" name="first_name" placeholder="First Name (required)" onblur="fnameFix()">
+							<br/>
+							<label for="fname">Letters only</label>
+						</div>
+						<div class="dual_field">
+							<input id="lname" type="text" name="last_name" placeholder="Last Name (required)" onblur="lnameFix()">
+							<br/>
+							<label for="lname">Letters only</label>
+						</div>
+					</div>
 					<br/>
-					<label for="fname">No numbers or special characters</label>
-					<br/><br/>
-
-					<input id="lname" type="text" name="last_name" placeholder="Last Name (required)" onblur="lnameFix()">
-					<br/>
-					<label for="lname">No numbers or special characters</label>
-					<br/><br/>
 
 					<input id="pnumber" type="text" name="phone_number" placeholder="Phone Number (required)" onblur="pnumberFix()">
 					<br/>
@@ -91,7 +111,7 @@
 					<br/>
 				</div>
 				<h3>Checkout</h3>
-				<div id="checkout_section">
+				<div id="checkout_section" class="menu_section">
 					<select id="hear" name="hear">
 						<option value="word">Word of mouth</option>
 						<option value="google">Google search</option>

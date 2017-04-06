@@ -6,9 +6,19 @@ body {
     text-align: center;
     background-color: white;
     width: 90%;
+	max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
+}
+#accordion h3 {
+	background-color: white;
+}
+table, th, td {
+	border: 1px solid lightgrey;
+}
+table {
+	border-collapse: collapse;
 }
 #input_form {
     text-align: center;
@@ -42,12 +52,14 @@ input {
 	overflow: auto;
 	align-items: center;
 	align-content: center;
+	text-align: center;
 }
 .dual_field {
 	align-self: center;
 	position: relative;
-	margin: 1em;
-	float: left;
+	margin: .5em;
+	float: none;
+	display: inline-block;
 }
 #dialogue {
     color: red;
