@@ -37,16 +37,16 @@ input {
     -moz-column-gap: 5%;
     column-gap: 5%;
 	
-	width: 90%;
+	width: 80%;
 	margin: auto;
 	overflow: auto;
 	align-items: center;
 	align-content: center;
 }
 .dual_field {
-	align-content: center;
+	align-self: center;
 	position: relative;
-	margin: 10px;
+	margin: 1em;
 	float: left;
 }
 #dialogue {
