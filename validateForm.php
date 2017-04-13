@@ -27,7 +27,7 @@
 				$city = $_POST['city'];
 				$province = $_POST['province'];
 				$postal_code = $_POST['postal_code'];
-				$hear = $_POST['hear'];
+				$errorMessage = "";
 				
 				
 				if (!is_numeric($standard)){
